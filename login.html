@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        form {
+            width: 400px;
+            margin: auto;
+            float: center;
+            padding: 40px
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            text-decoration: solid;
+        }
+
+        label {
+            display: block;
+            margin: 0 0 10 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            color: white;
+        }
+
+        input {
+            display: block;
+            margin: 0 0 10 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            color: black;
+        }
+
+        #loginForm {
+            background-color: #08629d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .submit {
+            background-color: deepskyblue;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            vertical-align: top;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        body {
+            background:url(formphoto.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" action="/auth/login" method="POST">
+        <h1>Login</h1>
+        <label for="l-email">Email</label>
+        <input type="email" name="email" id="l-email" required>
+        <label for="l-password">Password</label>
+        <input type="password" name="password" id="l-password" required>
+        <button type="submit" class="submit">Login</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="register-page">
+    <form id="registerForm" action="/auth/register" method="POST" onsubmit="return validateForm()">
+        <h1 class="get">Get Started</h1>
+        <label for="first_name">First Name</label>
+        <input type="text" name="f_name" id="f_name">
+        <span id="firstNameError" class="error"></span>
+        <br>
+        <label for="last_name">Last Name</label>
+        <input type="text" name="l_name" id="l_name">
+        <span id="lastNameError" class="error"></span>
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <span id="emailError" class="error"></span>
+        <br>
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age">
+        <span id="ageError" class="error"></span>
+        <br>
+        <label for="country">Country</label>
+        <select id="country" name="country"> 
+            <option value="">-------</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Lesotho">Lesotho</option>
+            <option value="Kenya">Kenya</option>
+        </select> 
+        <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <span id="passwordError" class="error"></span>
+        <br>
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" id="confirmpassword" name="confirmpassword">
+        <span id="confirmpasswordError" class="error"></span>
+        <br>
+        <input type="checkbox" id="terms-checkbox" name="terms-checkbox">
+        <label for="terms-checkbox">I agree to the Terms and Conditions</label>
+        <span id="terms-checkboxError" class="error"></span>
+        <br>
+        <button type="submit" class="submit">Register</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

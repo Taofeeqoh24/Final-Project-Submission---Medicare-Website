@@ -1,0 +1,291 @@
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 2px;
+}
+
+.company-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2600ff;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #2600ff;
+    text-decoration: none;
+    font-size: 18px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: #13d9fc;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    background-color: #2600ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 16px;
+    }
+
+.button:hover {
+        opacity: 0.8;
+    }
+
+.button:active {
+        opacity: 0.5;
+    }
+
+.main-content {
+    width: 100%;
+    min-height: 80vh;
+    background:url(doctor.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -15px;
+}
+
+.main-content-text {
+    font-weight: 200;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    color: #2600ff;
+    line-height: 60px;
+    right: 50px;
+    position: absolute;
+    margin-top: 100px;
+
+}
+
+#text {
+    margin-top: -50px;
+}
+
+.main-content-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin: 4px;
+    transition: opacity 0.15s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    vertical-align: top;
+}
+
+.buttons {
+    display: flex;
+}
+
+#main-content-p {
+    font-weight: 200;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    color: black;
+    line-height: 30px;
+    margin-top: -20px;
+}
+
+.footer {
+    background-color: rgb(200, 227, 243);
+    padding: 20px;
+    text-align: center;
+    clear: both;
+}
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*Large screens*/
+@media (min-width: 1200px) {
+    header {
+       max-width: 300%;
+    }
+    .main-content{
+        width: 100%;
+    }
+}
+
+/*Medium screens*/
+@media (min-width: 768px) and (max-width: 1199px) {
+    .main-content {
+        width: 105%;
+    }
+    header {
+        width: 105%;
+    }
+    .footer {
+        width: 105%;
+    }
+}
+/*Small screens*/
+@media (max-width: 767px) {
+    .main-content {
+        max-width: 200%;
+        float: right;
+    }
+    header {
+        width: 100%
+    }
+    nav {
+        display: none;
+    }
+    .buttons {
+        display: none;
+    }
+    .main-content-text {
+        text-align: center;
+    }
+    #main-content-p {
+        display: none;
+    }
+}
+
+form {
+    width: 400px;
+    margin: auto;
+    float: right;
+    padding: 40px
+    }
+
+label {
+    display: block;
+    margin: 0 0 10 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    color: white;
+    }
+
+input {
+    display: block;
+    margin: 0 0 10 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    color: black;
+    }
+
+#registerForm {
+    background-color: #08629d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto;
+    }
+
+.error {
+    color: red;
+    font-size: 13px;
+    }
+.get {
+    color: #6bcddb;
+    text-align: center;
+    font-size: 40px;
+    text-decoration: solid;
+    }
+.submit {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    vertical-align: top;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 8px;
+    }
+.register-page {
+    background:url(bk.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.second-page {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 20px;
+}
+
+.image {
+    width: 33%;  
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.second-page-text {
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 20px;
+}
+
+.third-page {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    gap: 20px;
+}
+.third-page-content {
+    font-weight: 150;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    color: #2600ff;
+    line-height: 50px;
+    right: 150px;
+    position: absolute;
+    margin-top: -50px;
+}
+#third-page-p {
+    line-height: 20px;
+    color: black;
+}
+.list-items {
+    line-height: 30px;
+}
