@@ -76,7 +76,7 @@ nav a:hover {
 .main-content {
     width: 100%;
     min-height: 80vh;
-    background:url(doctor.jpg);
+    background:url('../images/doctor.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: -15px;
@@ -241,7 +241,7 @@ input {
     margin-bottom: 8px;
     }
 .register-page {
-    background:url(bk.jpg);
+    background:url('../images/bk.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }

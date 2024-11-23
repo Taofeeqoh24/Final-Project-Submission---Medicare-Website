@@ -22,27 +22,27 @@ app.use('/patients', patientRoutes);
 
 //routes
 app.get('/register', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'register.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/register.html'));
 });
 
 app.get('/login', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/login.html'));
 });
 
 app.get('/', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'telemedicine.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/telemedicine.html'));
 });
 
 app.get('/home', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'home.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/home.html'));
 });
 
 app.put('/profile', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'profile.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/profile.html'));
 });
 
 app.get('/appointments', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'appointment.html'));
+    res.sendFile(path.join(__dirname, 'assets/html/appointment.html'));
 });
 
 

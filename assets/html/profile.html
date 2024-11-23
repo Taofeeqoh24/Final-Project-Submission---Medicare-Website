@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment</title>
+    <title>Update Profile</title>
     <style>
         form {
             width: 400px;
@@ -12,7 +12,7 @@
             padding: 40px
         }
 
-        h2 {
+        h1 {
             color: white;
             text-align: center;
             font-size: 40px;
@@ -35,7 +35,7 @@
             color: black;
         }
 
-        #bookAppointmentForm {
+        #updateProfileForm {
             background-color: #08629d;
             display: flex;
             flex-direction: column;
@@ -63,54 +63,48 @@
         }
 
         body {
-            background:url(formphoto.jpg);
+            background:url(assets/images/formphoto.jpg);
             background-size: cover;
             background-repeat: no-repeat;
         }
     </style>
 </head>
 <body>
-    <h2>Book Appointment</h2>
-    <form id="bookAppointmentForm" method="POST">
-        <label for="doctor_id">Doctor ID:</label>
-        <input type="number" id="doctor_id" name="doctor_id" required><br>
+    <form id="updateProfileForm" method="PUT">
+        <h1>Update Profile</h1>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required><br>
 
-        <label for="appointment_date">Appointment Date:</label>
-        <input type="date" id="appointment_date" name="appointment_date" required><br>
-
-        <label for="appointment_time">Appointment Time:</label>
-        <input type="time" id="appointment_time" name="appointment_time" required><br>
-
-        <button type="submit" class="submit">Book Appointment</button>
+        <button type="submit" class="submit">Update Profile</button>
     </form>
-
     <script>
-        // Handle appointment booking form submission
-            document.getElementById('bookAppointmentForm').addEventListener('submit', async function (event) {
+                // Handle profile update form submission
+        document.getElementById('updateProfileForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            const doctorId = document.getElementById('doctor_id').value;
-            const appointmentDate = document.getElementById('appointment_date').value;
-            const appointmentTime = document.getElementById('appointment_time').value;
+            const first_name = document.getElementById('first_name').value;
+            const last_name = document.getElementById('last_name').value;
+            const phone = document.getElementById('phone').value;
 
             try {
-                const response = await fetch('patient/appointments', {
+                const response = await fetch('/patients/profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        doctor_id: doctorId,
-                        appointment_date: appointmentDate,
-                        appointment_time: appointmentTime,
-                    }),
+                    body: JSON.stringify({ first_name, last_name, phone }),
                 });
 
-                const result = await response.json();
+                
                 if (response.ok) {
-                    alert('Appointment booked successfully!');
+                    alert('Profile updated successfully!');
                 } else {
-                    alert('Error booking appointment: ' + result.error);
+                    const result = await response.json();
+                    alert('Error updating profile: ' + result.error);
                 }
             } catch (error) {
                 alert('Error: ' + error.message);
