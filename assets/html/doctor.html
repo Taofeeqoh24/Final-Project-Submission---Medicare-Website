@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Login</title>
+    <style>
+        form {
+            width: 400px;
+            margin: auto;
+            float: center;
+            padding: 40px
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            text-decoration: solid;
+        }
+
+        label {
+            display: block;
+            margin: 0 0 10 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            color: white;
+        }
+
+        input {
+            display: block;
+            margin: 0 0 10 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            color: black;
+        }
+
+        #doctor-login-form {
+            background-color: #08629d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .submit {
+            background-color: deepskyblue;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            vertical-align: top;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        body {
+            background:url(assets/images/formphoto.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <form id="doctor-login-form">
+        <h1>Doctor's Login</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit" class="submit">Login</button>
+    </form>
+    
+    <script>
+            //doctor login
+            document.getElementById('doctor-login-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/doctor/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
+
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Login successful');
+                    // window.location.href = '/doctor/dashboard'; // Redirect to dashboard
+                } else {
+                    alert(result.error || 'Login failed');
+                }
+            } catch (err) {
+                alert('Error logging in: ' + err.message);
+            }
+        });
+    </script>
+</body>
+</html>

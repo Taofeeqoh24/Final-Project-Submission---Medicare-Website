@@ -4,6 +4,7 @@ const session = require('express-session');
 const path = require('path');
 const authRoutes = require('./routes/auth');
 const patientRoutes = require('./routes/patientRoutes');
+const doctorRoutes = require('./routes/doctorRoutes');
 //initialize
 const app = express();
 
@@ -15,10 +16,12 @@ app.use(session({
     cookie: { secure: false } // Use `secure: true` only if you have HTTPS
 }));
 app.use(express.static(path.join(__dirname, '/')));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/auth', authRoutes);
 app.use('/patients', patientRoutes);
+app.use('/doctor', doctorRoutes);
 
 //routes
 app.get('/register', (_req, res) => {
@@ -27,6 +30,10 @@ app.get('/register', (_req, res) => {
 
 app.get('/login', (_req, res) => {
     res.sendFile(path.join(__dirname, 'assets/html/login.html'));
+});
+
+app.get('/doctor', (_req, res) => {
+    res.sendFile(path.join(__dirname, 'assets/html/doctor.html'));
 });
 
 app.get('/', (_req, res) => {
