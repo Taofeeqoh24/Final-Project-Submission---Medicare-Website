@@ -29,6 +29,10 @@ app.get('/login', (_req, res) => {
     res.sendFile(path.join(__dirname, 'login.html'));
 });
 
+app.get('/', (_req, res) => {
+    res.sendFile(path.join(__dirname, 'telemedicine.html'));
+});
+
 app.get('/home', (_req, res) => {
     res.sendFile(path.join(__dirname, 'home.html'));
 });

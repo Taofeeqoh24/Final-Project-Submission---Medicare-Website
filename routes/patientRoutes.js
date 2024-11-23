@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/profile', updateProfile);
 
 // Route to book an appointment
-router.post('/patients/appointments', bookAppointment);
+router.post('/patient/appointments', bookAppointment);
 
 // Route to view appointments
 router.get('/appointments', viewAppointments);

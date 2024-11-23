@@ -70,7 +70,7 @@
     </style>
 </head>
 <body>
-    <form id="updateProfileForm" action="/patients/profile" method="PUT">
+    <form id="updateProfileForm" method="PUT">
         <h1>Update Profile</h1>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required><br>
@@ -81,6 +81,35 @@
 
         <button type="submit" class="submit">Update Profile</button>
     </form>
-    <script src="script.js"></script>
+    <script>
+                // Handle profile update form submission
+        document.getElementById('updateProfileForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const first_name = document.getElementById('first_name').value;
+            const last_name = document.getElementById('last_name').value;
+            const phone = document.getElementById('phone').value;
+
+            try {
+                const response = await fetch('/patients/profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ first_name, last_name, phone }),
+                });
+
+                
+                if (response.ok) {
+                    alert('Profile updated successfully!');
+                } else {
+                    const result = await response.json();
+                    alert('Error updating profile: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
 </body>
 </html>

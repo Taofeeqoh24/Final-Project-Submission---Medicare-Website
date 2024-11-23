@@ -71,7 +71,7 @@
 </head>
 <body>
     <h2>Book Appointment</h2>
-    <form id="bookAppointmentForm" action="/patients/appointments'" method="POST">
+    <form id="bookAppointmentForm" method="POST">
         <label for="doctor_id">Doctor ID:</label>
         <input type="number" id="doctor_id" name="doctor_id" required><br>
 
@@ -84,6 +84,38 @@
         <button type="submit" class="submit">Book Appointment</button>
     </form>
 
-    <script src="script.js"></script>
+    <script>
+        // Handle appointment booking form submission
+            document.getElementById('bookAppointmentForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const doctorId = document.getElementById('doctor_id').value;
+            const appointmentDate = document.getElementById('appointment_date').value;
+            const appointmentTime = document.getElementById('appointment_time').value;
+
+            try {
+                const response = await fetch('patient/appointments', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        doctor_id: doctorId,
+                        appointment_date: appointmentDate,
+                        appointment_time: appointmentTime,
+                    }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Appointment booked successfully!');
+                } else {
+                    alert('Error booking appointment: ' + result.error);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
 </body>
 </html>
